@@ -1,45 +1,69 @@
-# 🐋 FCM-WOA Customer Segmentation App
+# 🐋 FCM–WOA Customer Clustering
 
-Fuzzy C-Means + Whale Optimization Algorithm for segmenting customers into:
-- 🟡 **High Spenders**
-- 🔵 **Moderate Spenders**  
-- 🔴 **Low Spenders**
+This project implements Fuzzy C-Means (FCM) combined with the Whale Optimization Algorithm (WOA) to perform customer clustering based on age, income, and spending.
 
----
+--------------------------------------------------
 
-## 🚀 Deploy on Streamlit Cloud
+🔗 Live App
+https://customer-clustering-fuzzy-c-means-whale-optimization-algorithm.streamlit.app/
 
-### Step 1 — Push to GitHub
-```bash
-git init
-git add app.py requirements.txt README.md
-git commit -m "FCM-WOA app"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
-```
+--------------------------------------------------
 
-### Step 2 — Deploy
-1. Go to **[share.streamlit.io](https://share.streamlit.io)**
-2. Click **New app**
-3. Select your repo → Branch: `main` → Main file: `app.py`
-4. Click **Deploy** ✅
+ Overview
 
----
+- KMeans → hard clustering (one cluster per point)
+- FCM → soft clustering (multiple memberships)
+- WOA-FCM → optimized soft clustering (better cluster centers)
 
-## 💻 Run Locally
-```bash
-pip install -r requirements.txt
+WOA improves FCM by reducing the objective function and producing more stable clusters.
+
+--------------------------------------------------
+
+Features
+
+- Upload customer dataset (CSV)
+- Perform clustering using:
+  - KMeans
+  - FCM
+  - WOA-FCM
+- Visual comparison of clustering results
+- Objective score comparison (FCM vs WOA)
+
+--------------------------------------------------
+
+ Input Format
+
+CSV file must contain:
+
+- age → Customer age
+- income → Annual income
+- spending → Spending score
+
+--------------------------------------------------
+
+ Run Locally
+
+pip install -r requirements.txt  
 streamlit run app.py
-```
 
----
+--------------------------------------------------
 
-## 📁 Required CSV columns
-| Column | Description |
-|--------|------------|
-| `age` | Customer age |
-| `income` | Annual income |
-| `spending` | Annual spending |
+ Deployment
 
-Your `customer_data.csv` already has these columns — just upload it directly.
+Deployed using Streamlit Cloud
+
+--------------------------------------------------
+
+ Key Result
+
+FCM Objective : 65.67  
+WOA Objective : 65.48  
+
+Lower value indicates better clustering  
+WOA improves FCM performance
+
+--------------------------------------------------
+
+ Conclusion
+
+WOA enhances FCM by optimizing cluster centers, resulting in improved clustering quality and stability.
